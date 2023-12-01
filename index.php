@@ -29,9 +29,36 @@ if(isset($_POST['submit']))
     if(mysqli_num_rows($result))
     {
         
-        $admin = mysqli_fetch_assoc($result);
+        $member = mysqli_fetch_assoc($result);
 
-        $_SESSION['id'] = $admin['id'];
+        $_SESSION['id'] = $member['id'];
+
+        // If member does not have a city, assign the most recent created city
+        if(!$member['city_id'])
+        {
+
+            $query = 'SELECT *
+                FROM cities
+                WHERE member_id = "'.$member['id'].'"
+                ORDER BY created_at
+                LIMIT 1';
+            $result = mysqli_query($connect, $query);
+
+            $city = mysqli_fetch_assoc($result);
+
+            $_SESSION['city_id'] = $city['id'];
+
+            $query = 'UPDATE members SET
+                city_id = "'.$city['id'].'"
+                WHERE id = "'.$member['id'].'"
+                LIMIT 1';
+            $result = mysqli_query($connect, $query);
+
+        }
+        else
+        {
+            $_SESSION['city_id'] = $member['id'];
+        }
 
         set_message('You have been logged in!', 'success');
         redirect('dashboard.php');
@@ -61,13 +88,13 @@ include('includes/header.php');
     <label>
         Email:
         <br>
-        <input type="email" name="email">
+        <input type="email" name="email" value="brickmmo@gmail.com">
     </label>
 
     <label>
         Password:
         <br>
-        <input type="password" name="password">
+        <input type="password" name="password" value="password">
     </label>
 
     <input type="submit" value="Login">

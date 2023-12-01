@@ -1,19 +1,10 @@
    
-      <?php if(isset($_SESSION['student'])): ?>
+      <?php if(isset($_SESSION['id'])): ?>
 
          <hr>
 
          <div class="left">
             <a href="dashboard.php">Dashboard</a> | 
-            <a href="logout.php">Logout</a>
-         </div>
-
-      <?php elseif(isset($_SESSION['admin'])): ?>
-
-         <hr>
-
-         <div class="left">
-            <a href="console-dashboard.php">Dashboard</a> | 
             <a href="logout.php">Logout</a>
          </div>
 
