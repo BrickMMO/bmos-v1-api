@@ -24,36 +24,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hub_types`
+-- Table structure for table `cities`
 --
 
-CREATE TABLE `hub_types` (
+CREATE TABLE `cities` (
   `id` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
-  `slug` varchar(255) DEFAULT NULL,
+  `ip` varchar(255) NOT NULL,
+  `member_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `hub_types`
+-- Dumping data for table `cities`
 --
 
-INSERT INTO `hub_types` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Mindstorms EV3', 'ev3', '2023-12-01 04:19:27', '2023-12-01 04:20:42'),
-(2, 'Spike Prime', 'prime', '2023-12-01 04:19:27', '2023-12-01 04:20:45'),
-(3, 'Spike Essentials', 'essentials', '2023-12-01 04:19:34', '2023-12-01 04:20:49'),
-(4, 'Mindstorms Robot Inventor', 'inventor', '2023-12-01 04:20:08', '2023-12-01 04:20:55'),
-(5, 'BrickPi', 'pi', '2023-12-01 04:20:08', '2023-12-01 04:20:58');
+INSERT INTO `cities` (`id`, `name`, `ip`, `member_id`, `created_at`, `updated_at`) VALUES
+(1, 'Metropolis', '', 1, '2023-12-01 13:05:19', '2023-12-01 13:05:19'),
+(2, 'BrickMMO', '', 1, '2023-12-01 13:23:00', '2023-12-01 13:23:00');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `hub_types`
+-- Indexes for table `cities`
 --
-ALTER TABLE `hub_types`
+ALTER TABLE `cities`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -61,10 +59,10 @@ ALTER TABLE `hub_types`
 --
 
 --
--- AUTO_INCREMENT for table `hub_types`
+-- AUTO_INCREMENT for table `cities`
 --
-ALTER TABLE `hub_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `cities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

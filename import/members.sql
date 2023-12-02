@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Dec 02, 2023 at 04:04 AM
+-- Generation Time: Dec 02, 2023 at 04:05 AM
 -- Server version: 5.7.39
 -- PHP Version: 8.2.0
 
@@ -24,36 +24,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hub_types`
+-- Table structure for table `members`
 --
 
-CREATE TABLE `hub_types` (
+CREATE TABLE `members` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `slug` varchar(255) DEFAULT NULL,
+  `first` varchar(255) DEFAULT NULL,
+  `last` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `status` enum('active','inactive') NOT NULL DEFAULT 'active',
+  `city_id` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `hub_types`
+-- Dumping data for table `members`
 --
 
-INSERT INTO `hub_types` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
-(1, 'Mindstorms EV3', 'ev3', '2023-12-01 04:19:27', '2023-12-01 04:20:42'),
-(2, 'Spike Prime', 'prime', '2023-12-01 04:19:27', '2023-12-01 04:20:45'),
-(3, 'Spike Essentials', 'essentials', '2023-12-01 04:19:34', '2023-12-01 04:20:49'),
-(4, 'Mindstorms Robot Inventor', 'inventor', '2023-12-01 04:20:08', '2023-12-01 04:20:55'),
-(5, 'BrickPi', 'pi', '2023-12-01 04:20:08', '2023-12-01 04:20:58');
+INSERT INTO `members` (`id`, `first`, `last`, `username`, `email`, `password`, `status`, `city_id`, `created_at`, `updated_at`) VALUES
+(1, 'Adam', 'Thomas', 'brickmmo', 'brickmmo@gmail.com', '5f4dcc3b5aa765d61d8327deb882cf99', 'active', 2, '2023-12-01 13:05:00', '2023-12-01 13:40:34');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `hub_types`
+-- Indexes for table `members`
 --
-ALTER TABLE `hub_types`
+ALTER TABLE `members`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -61,10 +62,10 @@ ALTER TABLE `hub_types`
 --
 
 --
--- AUTO_INCREMENT for table `hub_types`
+-- AUTO_INCREMENT for table `members`
 --
-ALTER TABLE `hub_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `members`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

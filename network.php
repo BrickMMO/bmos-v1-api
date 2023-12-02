@@ -12,17 +12,17 @@ include('includes/header.php');
 
 ?>
 
-<h1>Admin Dashboard</h1>
+<h1>City Network</h1>
 
 <?php check_message(); ?>
 
 <hr>
 
-<div class="panels">
-    <div>
-        <a href="network.php">Network</a>
-    </div>
-</div>
+<h2>Your IP is: <?=get_ip()?></h2>
+
+<p>List of devices currently connected:</p>
+
+
 
 
 <?php
